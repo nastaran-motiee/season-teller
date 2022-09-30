@@ -1,7 +1,20 @@
+import './SeasonDisplay.css'
 import React from "react";
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" />
 
 
+const seasonConfig = {
+    summer: {
+        text: "Let's hit the beach!",
+        iconName: 'sun',
+
+    },
+    winter: {
+        text: "Burr, it's cold !",
+        iconName: 'snowflake',
+
+    }
+}
 const getSeason = (lat, month) => {
     if (month > 2 && month < 9) {
         return lat > 0 ? 'summer' : 'winter';
@@ -16,13 +29,14 @@ const getSeason = (lat, month) => {
 
 const SeasonDisplay = (props) => {
     const season = getSeason(props.lat, new Date().getMonth());
-    const text = season === 'winter' ? <h1 style={ { color: 'blue', textAlign: 'center' } }>Burr, it is chilly!</h1> : <h1 style={ { color: 'red', textAlign: 'center' } }>Lets hit the beach!</h1>
-    const icon = season === 'winter' ? 'massive blue snowflake outline loading' : 'massive yellow sun loading';
+    const { text, iconName, textColor } = seasonConfig[ season ];
+
 
     return (
-        <div>
-            { text }
-            <i className={ `${icon} icon` }></i>
+        <div className={ `season-display ${season}` }>
+            <i className={ `icon-left massive ${iconName} loading icon` }></i>
+            <h1 style={ { color: textColor } }>{ text }</h1>
+            <i className={ `icon-right massive ${iconName} loading icon` }></i>
         </div>
     );
 }
