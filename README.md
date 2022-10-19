@@ -1,4 +1,10 @@
 #This is a funny website that tells you the season, based on your location ❄️ 🌞
+
+
+
+https://user-images.githubusercontent.com/33676320/196669346-9754728d-bad5-4e79-aeaf-e2fa6c1821ec.mp4
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
